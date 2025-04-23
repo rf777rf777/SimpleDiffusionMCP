@@ -18,7 +18,10 @@ def get_greeting(name: str) -> str:
     """Get a personalized greeting"""
     return f"Hello, {name}!"
 
-
+@mcp.resource("say/{words}")
+def get_greeting(words: str) -> str:
+    """Say something"""
+    return f"I Say: {words}!"
 # @mcp.tool()
 # def generate_image(text: str = "MCP!") -> PILImage:
 #     """產生一張帶有文字的圖片"""
@@ -30,7 +33,7 @@ def get_greeting(name: str) -> str:
 #     return img
 
 @mcp.tool()
-def generate_image(text: str = "MCP!") -> Image:
+def generate_image(text: str = "MCP!") -> PILImage:
     """產生一張帶有文字的圖片，並以 MCP Image 格式回傳"""
 
     img = PILImage.new("RGB", (256, 256), color=(255, 255, 255))
